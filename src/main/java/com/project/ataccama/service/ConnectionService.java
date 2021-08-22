@@ -52,4 +52,9 @@ public class ConnectionService {
         }
         connectionRepository.deleteById(name);
     }
+
+    public ConnectionDetails getConnection(String name) {
+        return connectionRepository.findById(name)
+                .orElseThrow(() -> new ConnectionDetailsException("No database with name: " + name));
+    }
 }
