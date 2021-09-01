@@ -16,6 +16,11 @@ public class ConnectionController {
         return connectionService.list();
     }
 
+    @GetMapping("/find")
+    public @ResponseBody ConnectionDetails getConnection(@RequestParam String name) {
+        return connectionService.getConnection(name);
+    }
+
     @PostMapping("/save")
     public @ResponseBody String saveConnection(
             @RequestParam String name,
